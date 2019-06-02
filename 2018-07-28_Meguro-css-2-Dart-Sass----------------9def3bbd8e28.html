@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Meguro.css#2でDart Sassをブラウザで動かす話をしてきた</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Meguro.css#2でDart Sassをブラウザで動かす話をしてきた</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+デモとソースはこちら
+</section>
+<section data-field="body" class="e-content">
+<section name="147f" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="6929" id="6929" class="graf graf--h3 graf--leading graf--title">Meguro.css#2でDart Sassをブラウザで動かす話をしてきた</h3><figure name="f865" id="f865" class="graf graf--figure graf--iframe graf-after--h3"><iframe src="https://speakerdeck.com/player/44060133d3d4443faf3ccb4ac1e8c195" width="700" height="588" frameborder="0" scrolling="no"></iframe></figure><p name="e949" id="e949" class="graf graf--p graf-after--figure">デモとソースはこちら</p><p name="078f" id="078f" class="graf graf--p graf-after--p">Demo <br><a href="https://dart-sass-bootstrap-demo.netlify.com/" data-href="https://dart-sass-bootstrap-demo.netlify.com/" class="markup--anchor markup--p-anchor" rel="nofollow noopener noopener noopener" target="_blank">https://dart-sass-bootstrap-demo.netlify.com/</a> (その3)</p><p name="6aca" id="6aca" class="graf graf--p graf-after--p">Source <br><a href="https://github.com/terrierscript/dartystrap/" data-href="https://github.com/terrierscript/dartystrap/" class="markup--anchor markup--p-anchor" rel="nofollow noopener noopener noopener" target="_blank">https://github.com/terrierscript/dartystrap/</a></p><p name="c6dd" id="c6dd" class="graf graf--p graf-after--p">Soruce (parcel-plugin) <br><a href="https://github.com/terrierscript/parcel-plugin-darty" data-href="https://github.com/terrierscript/parcel-plugin-darty" class="markup--anchor markup--p-anchor" rel="nofollow noopener noopener noopener" target="_blank">https://github.com/terrierscript/parcel-plugin-darty</a></p><p name="6b04" id="6b04" class="graf graf--p graf-after--p">その1だけの簡素版もあったので貼っておく（こっちの方がさっくり動いている感がある）<a href="https://dart-sass-browser-sample.netlify.com/" data-href="https://dart-sass-browser-sample.netlify.com/" class="markup--anchor markup--p-anchor" rel="nofollow noopener noopener noopener noopener" target="_blank"><br>https://dart-sass-browser-sample.netlify.com/</a> <a href="https://github.com/terrierscript/dart-sass-browser" data-href="https://github.com/terrierscript/dart-sass-browser" class="markup--anchor markup--p-anchor" rel="nofollow noopener noopener noopener noopener" target="_blank">https://github.com/terrierscript/dart-sass-browser</a></p><p name="bfd9" id="bfd9" class="graf graf--p graf-after--p">ソースはアレな具合なところ多いがご勘弁願いたい。</p><figure name="8464" id="8464" class="graf graf--figure graf-after--p"><div class="aspectRatioPlaceholder is-locked" style="max-width: 570px; max-height: 271px;"><div class="aspectRatioPlaceholder-fill" style="padding-bottom: 47.5%;"></div><img class="graf-image" data-image-id="1*N7PK_0C-LZWCHZmcof_dDg.png" data-width="570" data-height="271" src="https://cdn-images-1.medium.com/max/800/1*N7PK_0C-LZWCHZmcof_dDg.png"></div></figure><p name="91a5" id="91a5" class="graf graf--p graf-after--figure">本当は元々Bootstrap4のカスタムビルド的な話をしようと思って練っていたら色々転がってこんな感じのスライドになった。結果実用性がほとんど無くなっている。</p><p name="d4ca" id="d4ca" class="graf graf--p graf-after--p">アイスブレイク的に「みなさんSass嫌いかと思いますが」と言ってみたが意外とみんなに嫌われてないようだった。</p><p name="69d1" id="69d1" class="graf graf--p graf-after--p">（個人的にはnode-sassがインストール遅いし壊れるしでdart-sassに早く置き換われという気持ちとか変数とかもうcss variables使おうぜという気持ちとかReactとかVueでSass使われてるの見ると「いやそれコンポーネント設計見直すべきでは？」というパターンがわりとあるとか思うとか色々な気持ちがある）</p><p name="a166" id="a166" class="graf graf--p graf-after--p">あとは色々雑感などを書いていく</p><h4 name="f3d8" id="f3d8" class="graf graf--h4 graf-after--p">Sass関連</h4><ul class="postList"><li name="b659" id="b659" class="graf graf--li graf-after--h4">dart-sassのソースコードは割と読める。個人的にはGoっぽい感じだと思った。（パーサー周りまでは潜ってないけど・・・）</li><li name="8172" id="8172" class="graf graf--li graf-after--li"><a href="https://github.com/sass/dart-sass/blob/master/perf.md" data-href="https://github.com/sass/dart-sass/blob/master/perf.md" class="markup--anchor markup--li-anchor" rel="noopener" target="_blank">パフォーマンス測定</a>を見ると、node上で走らせるとdart-sassはやっぱりそれほど夢がない程度のスピードのようだが、インストールの事など考えるとそれでもdart-sass使いたいなーと思っている。</li><li name="0ac1" id="0ac1" class="graf graf--li graf-after--li">sassのimporter関数は<a href="https://github.com/maoberlehner/node-sass-magic-importer" data-href="https://github.com/maoberlehner/node-sass-magic-importer" class="markup--anchor markup--li-anchor" rel="nofollow noopener noopener noopener" target="_blank">node-sass-magic-importer</a>の実装を見ながら自前した。unpkgからボリボリ落としてくる感じにしているが、うまいことマッピングみたいなのを持ってないと相対パスを解決出来ないとかぼちぼち面倒なとこはあった。</li></ul><h4 name="9bd1" id="9bd1" class="graf graf--h4 graf-after--li">Parcel関連</h4><ul class="postList"><li name="cca0" id="cca0" class="graf graf--li graf-after--h4">うっかりparcelを触ってしまったが、感想としてはparcel最高に尽きる。</li><li name="3b26" id="3b26" class="graf graf--li graf-after--li">本体コードもasync/await使ってたりモダンでクリーンだし、plugin作成もwebpackやgruntのプラグインよりずっと簡単に思える。</li><li name="e28d" id="e28d" class="graf graf--li graf-after--li">プラグインとかは<a href="https://github.com/parcel-bundler/awesome-parcel" data-href="https://github.com/parcel-bundler/awesome-parcel" class="markup--anchor markup--li-anchor" rel="nofollow noopener noopener noopener" target="_blank">awesome-parcel</a>からplugin探って色々参考にしてた</li><li name="9b38" id="9b38" class="graf graf--li graf-after--li"><a href="https://medium.com/@terrierscript/parcel-config-6f942da4d199" data-href="https://medium.com/@terrierscript/parcel-config-6f942da4d199" class="markup--anchor markup--li-anchor" rel="nofollow" target="_blank">Parcelへの気持ちはこちらの記事にも書いた</a>が、configを徹底して書かせないという思想はアリだ。</li><li name="e2ab" id="e2ab" class="graf graf--li graf-after--li">ビルド大好きおじさんなので「Webpackで消耗」という気持ちがあまりわからなくなっていたが、parcelの消耗しなさを知ってしまって今後はWebpackで消耗するという概念を知ってしまいそうで怖い。</li><li name="1560" id="1560" class="graf graf--li graf-after--li">たまにキャッシュが悪さするのでno-cacheしたりするとよい</li><li name="52c0" id="52c0" class="graf graf--li graf-after--li">WebWorkerも使ったけどビルド周りはparcelが勝手にパースしてくれてまじで最高だった。拡張子書かないといけないってとこだけハマった。</li><li name="ab92" id="ab92" class="graf graf--li graf-after--li">parcelのWebWorkerビルドが入ったばっかで<a href="https://github.com/parcel-bundler/parcel/pull/1669" data-href="https://github.com/parcel-bundler/parcel/pull/1669" class="markup--anchor markup--li-anchor" rel="noopener" target="_blank">こんなバグ</a>にあたったけどメンテナさんが<a href="https://github.com/parcel-bundler/parcel/pull/1669#issuecomment-403340313" data-href="https://github.com/parcel-bundler/parcel/pull/1669#issuecomment-403340313" class="markup--anchor markup--li-anchor" rel="noopener" target="_blank">速攻で直してくれて</a>勢いある！って感じだった</li><li name="b65f" id="b65f" class="graf graf--li graf-after--li">スライド中で紹介してるparcelのrequireを騙す手法は既に<a href="https://github.com/parcel-bundler/parcel/issues/761" data-href="https://github.com/parcel-bundler/parcel/issues/761" class="markup--anchor markup--li-anchor" rel="noopener" target="_blank">防がれているっぽい</a>。素早い。</li><li name="7d1b" id="7d1b" class="graf graf--li graf-after--li">どうでもいいけどnpmでgithubから引っ張ってくるとき<a href="https://snippet.terrierscript.com/blog/20180708000000-npm-install-or-yarn-add-github-username-reponame-github/" data-href="https://snippet.terrierscript.com/blog/20180708000000-npm-install-or-yarn-add-github-username-reponame-github/" class="markup--anchor markup--li-anchor" rel="noopener" target="_blank">github:username/repositoryで指定出来る</a>のに気づいて超便利だった</li></ul><h4 name="b480" id="b480" class="graf graf--h4 graf-after--li">React関連</h4><ul class="postList"><li name="da75" id="da75" class="graf graf--li graf-after--h4">最初デモとかlit-htmlとかでやろうとしたけどあまりに慣れずにあきらめてReact使う事にした。</li><li name="38d7" id="38d7" class="graf graf--li graf-after--li"><a href="https://github.com/Wildhoney/ReactShadow" data-href="https://github.com/Wildhoney/ReactShadow" class="markup--anchor markup--li-anchor" rel="noopener" target="_blank">react-shadow</a>でShadowDOM使ったら感動した（しかしShadowが親からのCSSの影響受けててウッてなった）</li><li name="edc4" id="edc4" class="graf graf--li graf-after--li">デモには<a href="https://qiita.com/terrierscript/items/03df4d522cf9cf431021" data-href="https://qiita.com/terrierscript/items/03df4d522cf9cf431021" class="markup--anchor markup--li-anchor" rel="noopener" target="_blank">Function as Child Component</a>をふんだんに使ってみたけど謎のリレンダが走ったり結局ステート散らしてしまって最終的に「グローバルなステート欲しい・・・」みたいな気持ちになって、ステート散らかしアンチパターンを再学習した</li><li name="0889" id="0889" class="graf graf--li graf-after--li">デモで<a href="https://reakit.io/" data-href="https://reakit.io/" class="markup--anchor markup--li-anchor" rel="noopener" target="_blank">reakit</a>も使ってこれもなかなか良い感じだった。早く<a href="https://github.com/reakit/reakit/pull/146" data-href="https://github.com/reakit/reakit/pull/146" class="markup--anchor markup--li-anchor" rel="noopener" target="_blank">TypeScript対応</a>してほしいので期待している</li><li name="1a64" id="1a64" class="graf graf--li graf-after--li">途中から手作業確認だるくなってpuppeteerでちょっとだけ<a href="https://github.com/terrierscript/dartystrap/blob/master/test-integration/scinario.js" data-href="https://github.com/terrierscript/dartystrap/blob/master/test-integration/scinario.js" class="markup--anchor markup--li-anchor" rel="noopener" target="_blank">integrationテスト</a>書いた。seleniumの10倍ぐらい楽に感じてはいる。</li></ul><h4 name="f353" id="f353" class="graf graf--h4 graf-after--li">配信関連</h4><ul class="postList"><li name="228b" id="228b" class="graf graf--li graf-after--h4">最初CodeSandboxでデモ作っていたが、CodeSandboxの処理はどうも裏側にいるnodeがSSRっぽくやっている挙動していたので、今回の趣旨としてこれでは駄目だなとなった。気をつけないとハマるかも。</li><li name="cf4e" id="cf4e" class="graf graf--li graf-after--li">相変わらずnetlifyは僕らの味方。</li><li name="1f8a" id="1f8a" class="graf graf--li graf-after--li">unpkgも直で毎回取ってくるの申し訳ねえなみたいな気持ちで<a href="https://github.com/terrierscript/dartystrap/blob/master/netlify.toml#L6-L9" data-href="https://github.com/terrierscript/dartystrap/blob/master/netlify.toml#L6-L9" class="markup--anchor markup--li-anchor" rel="noopener" target="_blank">netlify側にキャッシュするように設定</a>出来た。すぐ出来る。</li><li name="193f" id="193f" class="graf graf--li graf-after--li">設定系GUIにまとめるの面倒だったり、_redirectファイルとかだとだるいことが起きるので全部netlify.tomlで完結したほうが良い。</li><li name="0b4e" id="0b4e" class="graf graf--li graf-after--li">一応<a href="https://github.com/terrierscript/dartystrap/blob/master/functions/build.js" data-href="https://github.com/terrierscript/dartystrap/blob/master/functions/build.js" class="markup--anchor markup--li-anchor" rel="noopener" target="_blank">Functions</a>でbootstrapコンパイル出来るバージョンも作ってたが、結果別に面白くないのでボツにした</li></ul><h4 name="6a72" id="6a72" class="graf graf--h4 graf-after--li">発表関連</h4><ul class="postList"><li name="2541" id="2541" class="graf graf--li graf-after--h4">なんだかんだでオープンな外部勉強会でLTやったのは初めてだった。まあ及第点ではないかと思う</li><li name="9eb9" id="9eb9" class="graf graf--li graf-after--li">得意としてるのがスライド枚数多めでスパスパ進んでいくスタイルなので<a href="https://ozaki25.hatenadiary.jp/entry/2018/07/27/210933" data-href="https://ozaki25.hatenadiary.jp/entry/2018/07/27/210933" class="markup--anchor markup--li-anchor" rel="noopener" target="_blank">メモ取りづらい</a>ですよねすいませんって気持ちはあります</li><li name="7e72" id="7e72" class="graf graf--li graf-after--li">デモが勉強会開始20分前に動いてないことが発覚して脳汁出しまくって<a href="https://github.com/terrierscript/dartystrap/commit/30bad6f02d9532bda58c172a943796a7586bbdaf" data-href="https://github.com/terrierscript/dartystrap/commit/30bad6f02d9532bda58c172a943796a7586bbdaf" class="markup--anchor markup--li-anchor" rel="noopener" target="_blank">直せた</a>。危なかった</li><li name="0faf" id="0faf" class="graf graf--li graf-after--li">なんでこれ気づいてなかったのかと思ったがおそらくキャッシュされていたときこのコード通って無くて、数日放置してキャッシュ消えてから動かしたら死んだとかそんな感じだと睨んでいる</li><li name="b5a9" id="b5a9" class="graf graf--li graf-after--li graf--trailing">本番でネットワーク不調でデモが動かなくて更に焦った。やはりデモは動画のほうが良いんだなと学習（少なくとも動画を用意しておくべきだとは思った）</li></ul></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@terrierscript" class="p-author h-card">terrierscript</a> on <a href="https://medium.com/p/9def3bbd8e28"><time class="dt-published" datetime="2018-07-28T00:58:39.537Z">July 28, 2018</time></a>.</p><p><a href="https://medium.com/@terrierscript/dart-sass-de-asobou-9def3bbd8e28" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on June 1, 2019.</p></footer></article></body></html>

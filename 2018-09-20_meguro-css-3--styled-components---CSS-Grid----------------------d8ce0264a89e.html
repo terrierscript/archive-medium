@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>meguro.css#3 でstyled-components + CSS Gridに感じる無限の可能性についての話をしました</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">meguro.css#3 でstyled-components + CSS Gridに感じる無限の可能性についての話をしました</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+styled-componentsとCSS-Grid組み合わせるとなんかいろいろ出来るぞ！みたいな事に気付いて、meguro.cssの枠に空きがあったので「ここで話すしかない！」みたいな感じで参加しました。前回はゴリッとJSなdart-sassの話をしてしまったのですが、今回はか…
+</section>
+<section data-field="body" class="e-content">
+<section name="4450" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="5b2b" id="5b2b" class="graf graf--h3 graf--leading graf--title"><a href="https://megurocss.connpass.com/event/98770/" data-href="https://megurocss.connpass.com/event/98770/" class="markup--anchor markup--h3-anchor" rel="noopener" target="_blank">meguro.css#3</a> でstyled-components + CSS Gridに感じる無限の可能性についての話をしました</h3><p name="5b96" id="5b96" class="graf graf--p graf-after--h3">styled-componentsとCSS-Grid組み合わせるとなんかいろいろ出来るぞ！みたいな事に気付いて、meguro.cssの枠に空きがあったので「ここで話すしかない！」みたいな感じで参加しました。<a href="https://medium.com/@terrierscript/dart-sass-de-asobou-9def3bbd8e28" data-href="https://medium.com/@terrierscript/dart-sass-de-asobou-9def3bbd8e28" class="markup--anchor markup--p-anchor" target="_blank">前回はゴリッとJSなdart-sassの話</a>をしてしまったのですが、今回はかなり趣旨に使い話ができた気がします。</p><p name="2933" id="2933" class="graf graf--p graf-after--p">ちょっと前から「もうちょっとUI（UXではなくあくまでUI）についてもう少し素振りしたいなー」みたいなことを思ってて<a href="http://www.dailyui.co/" data-href="http://www.dailyui.co/" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">Daily UI</a>を<a href="http://collectui.com/" data-href="http://collectui.com/" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">Collect UI</a> 見たりしながらチマチマやっていた所でいろいろ脱線したのが今回の産物になります（電卓とかの例はまさにそれです）</p><p name="f7e3" id="f7e3" class="graf graf--p graf-after--p">元がデザイン素振りのためのものだったりするので、パフォーマンスだったりブラウザ依存とかは考慮してない夢の世界の話ですが、一部は真面目に使えるケースもあるんじゃないか？と思ったりもしています。<br>画的に地味ですが、タイムテーブルとかは技術カンファレンスとかのやつで使えるのでは？とか思ったりしています。</p><figure name="e638" id="e638" class="graf graf--figure graf--iframe graf-after--p"><iframe src="https://speakerdeck.com/player/5279454d58714b558758e1b5fd36c960" width="700" height="525" frameborder="0" scrolling="no"></iframe></figure><p name="2c45" id="2c45" class="graf graf--p graf-after--figure">デモ（コールドモック）：<a href="https://styled-component-css-grid.netlify.com/" data-href="https://styled-component-css-grid.netlify.com/" class="markup--anchor markup--p-anchor" rel="nofollow noopener" target="_blank">https://styled-component-css-grid.netlify.com/</a><br>ソース：<a href="https://github.com/terrierscript/css-grid-example" data-href="https://github.com/terrierscript/css-grid-example" class="markup--anchor markup--p-anchor" rel="nofollow noopener" target="_blank">https://github.com/terrierscript/css-grid-example</a></p><h3 name="e420" id="e420" class="graf graf--h3 graf-after--p">スライドの補足情報</h3><p name="7102" id="7102" class="graf graf--p graf-after--h3">こぼれたりした話を雑に</p><h4 name="dd58" id="dd58" class="graf graf--h4 graf-after--p">Gridについて</h4><ul class="postList"><li name="de7f" id="de7f" class="graf graf--li graf-after--h4">とりあえず一番言いたかったのはCSS GridがすごいしそこにJavaScriptの動的な処理を加えるともうすごいぞって事です</li><li name="6e2d" id="6e2d" class="graf graf--li graf-after--li">CSS Gridを勉強しようとするとrows / columnsで説明してる話とareasで話してる話が混ざってたりすることが多いのが結構厄介で「これはどっちの話をしてるか？」を見極めるとわりと意味がわかってくる印象があります。</li><li name="c29a" id="c29a" class="graf graf--li graf-after--li">あとは習うより慣れろ的な感じがあります。最初取っ付きづらいですが、よくわかんなくても何度か書いてたらだんだん慣れてきます。</li><li name="38f8" id="38f8" class="graf graf--li graf-after--li">Gridってページ全体のレイアウトで少数しか使わないような感じかな？と思っていたのですが、ネストするの出来るし、twitterのカード程度の複雑なものであれば十分使い所ありそうだなと思ってます</li><li name="a78e" id="a78e" class="graf graf--li graf-after--li">grid-gapをしれっと使ってましたが、こいつがすごく良いです。</li><li name="2f7a" id="2f7a" class="graf graf--li graf-after--li">min-contentsとかmimmaxとかその他付随していろいろ使える値も増えてます（ここは深く追ってません）</li><li name="6cc9" id="6cc9" class="graf graf--li graf-after--li">auto-fillとかauto-fitの話もこぼれましたがあれも楽しそうです</li></ul><h4 name="bc93" id="bc93" class="graf graf--h4 graf-after--li">デモの補足</h4><ul class="postList"><li name="a560" id="a560" class="graf graf--li graf-after--h4">タイムテーブルの線はそのまま1pxで引くと重なって2pxになってしまうので、topとleftだけ指定するちょいダサCSSで解決しました</li><li name="d3cd" id="d3cd" class="graf graf--li graf-after--li">カレンダーはrepeatではなくtemplate-areaを使うパターンとかありましたが、なんだかんだでrepeatが一番ベターな感じでした。</li><li name="fc8f" id="fc8f" class="graf graf--li graf-after--li">オセロはゲーム系で再現するもので一番ラクだったのでやったものの、ロジック考えると配列データで持たないといけなそうだしGridで描画出来るのが嬉しいか微妙な可能性が。。（実際は将棋の棋譜とかのほうが相性良さそう）</li><li name="cef5" id="cef5" class="graf graf--li graf-after--li">履歴書のやつは線の領域をbackground: blackを敷いて線っぽいものを再現してます。他の例示としてるborderをそれぞれにつける方法でもやってみたのですが、1px微妙にずれるみたいな現象があって、意外とgridで線を引くのは一周回ってアリになる可能性もあるかもしれないなーとも思っています。</li><li name="1e87" id="1e87" class="graf graf--li graf-after--li">リーンキャンパスのレスポンシブは実際にはarea情報を二次配列化 -&gt; 配列を行列っぽく回転 -&gt; stringのareaに戻す みたいなことをやってましたが説明しきれなかったのでスライドではべた書きで説明しました</li></ul><h4 name="14d0" id="14d0" class="graf graf--h4 graf-after--li">その他補足</h4><ul class="postList"><li name="67ee" id="67ee" class="graf graf--li graf-after--h4">AreaのコンポーネントをTypeScriptのenumで厳格にするみたいな話もありましたが流石にTypeScriptの話入れると爆発するので削りました。</li><li name="d214" id="d214" class="graf graf--li graf-after--li">styled-componentsでレスポンシブとかしてるのはこんな感じでやるといい感じになりました。<br><a href="https://qiita.com/terrierscript/items/5f68eb618a2873760f3d" data-href="https://qiita.com/terrierscript/items/5f68eb618a2873760f3d" class="markup--anchor markup--li-anchor" rel="nofollow noopener noopener" target="_blank">https://qiita.com/terrierscript/items/5f68eb618a2873760f3d</a></li><li name="4919" id="4919" class="graf graf--li graf-after--li">VSCodeやatomのマルチライン使うといい感じの編集ができます <a href="https://twitter.com/terrierscript/status/1042773608349589504" data-href="https://twitter.com/terrierscript/status/1042773608349589504" class="markup--anchor markup--li-anchor" rel="nofollow noopener noopener" target="_blank">https://twitter.com/terrierscript/status/1042773608349589504</a></li><li name="a04e" id="a04e" class="graf graf--li graf-after--li">spreadsheetも真面目に下書きツールとして有益です（ただ、空セルだったら「.」で埋めるみたいな事したかったのですがうまくできなかった）</li><li name="1b08" id="1b08" class="graf graf--li graf-after--li">しれっとrangeするのに <code class="markup--code markup--li-code">Array.from({length: 10})</code> みたいな術を使ってます。このへん僕もメンバーにしてもらってる <a href="https://github.com/you-dont-need/You-Dont-Need-Lodash-Underscore" data-href="https://github.com/you-dont-need/You-Dont-Need-Lodash-Underscore" class="markup--anchor markup--li-anchor" rel="nofollow noopener" target="_blank">You-Dont-Need-Lodash-Underscore</a> にたくさん載せてるのでご興味あればどうぞ</li><li name="f1ad" id="f1ad" class="graf graf--li graf-after--li">公式の<a href="https://github.com/FortAwesome/react-fontawesome" data-href="https://github.com/FortAwesome/react-fontawesome" class="markup--anchor markup--li-anchor" rel="noopener" target="_blank">react-font-awesome</a> 使ってみたら思いの外いい感じでした</li><li name="66e9" id="66e9" class="graf graf--li graf-after--li">demoには<a href="https://www.google.co.jp/search?q=react-cosmos&amp;oq=react-cosmos&amp;aqs=chrome..69i57j69i60l3j0l2.173j0j7&amp;sourceid=chrome&amp;ie=UTF-8" data-href="https://www.google.co.jp/search?q=react-cosmos&amp;oq=react-cosmos&amp;aqs=chrome..69i57j69i60l3j0l2.173j0j7&amp;sourceid=chrome&amp;ie=UTF-8" class="markup--anchor markup--li-anchor" rel="noopener" target="_blank">react-cosmos</a>使いました。storybookよりもfixtureの書き心地が良かったりレスポンシブ確認がやりやすいみたいな点はありつつ、名前のフォルダリングがうまくいじれなかったりするのでトータルでいうとどっこいどっこい・・・？</li><li name="c5e4" id="c5e4" class="graf graf--li graf-after--li">React + styled-componentsをベースにしたCodepenやCode Sandboxみたいなのがあれば楽しそう、みたいなのを一瞬思いました。<br>（何故かCode SandboxでGridを書くとうまく動かず、サーバーで処理している可能性がある・・・？）</li></ul><h3 name="e8cc" id="e8cc" class="graf graf--h3 graf-after--li">反省など</h3><ul class="postList"><li name="00ca" id="00ca" class="graf graf--li graf-after--h3">10分をちょっとだけ超えてしまった（前半の説明削るか、ネタ１つ削ってよかった）</li><li name="0a6b" id="0a6b" class="graf graf--li graf-after--li">speaker deckのURLがstyled-componentになってしまった</li><li name="6ee3" id="6ee3" class="graf graf--li graf-after--li">勉強会でのLTというのを人生でずっと避けてきたが、二〜三回程やってみてこれまで社内向けでやってた自分のスタイルでちゃんといける感じが持ててきた</li><li name="218d" id="218d" class="graf graf--li graf-after--li">やりたいことは後半のサンプルを見せたいってことだったのだが、どうしても出たてのモノの組み合わせという性質上説明しないと伝わらないみたいなのがあってこういう形にした。が、もっと振り切ってよかった気がする（最初に一個サンプルをドカンと見せてからそれにあわせて説明とか）</li><li name="8ac5" id="8ac5" class="graf graf--li graf-after--li">スライドを割とちゃんと作らないとイメージが湧かないタイプなのだけど、一回ガツンと作り直したりもしててもうちょっと効率化したい気持ち</li><li name="bf83" id="bf83" class="graf graf--li graf-after--li">スライド形式で作ると記事とは別な視点やノリで物事を書ける感じがあって、発表しないけどスライドだけ公開するみたいな文化できたらいいのにと思いつつある</li><li name="42f4" id="42f4" class="graf graf--li graf-after--li">僕もスライドに犬の画像入れればよかった。もっと無意味に犬の画像を使っていきたい（という後悔があったのでせめてこの記事のOGPは犬を使った）</li></ul><figure name="8ceb" id="8ceb" class="graf graf--figure graf-after--li graf--trailing"><div class="aspectRatioPlaceholder is-locked" style="max-width: 700px; max-height: 368px;"><div class="aspectRatioPlaceholder-fill" style="padding-bottom: 52.5%;"></div><img class="graf-image" data-image-id="1*-0YpMxxmXWw3eaw4NtuRgA.png" data-width="1200" data-height="630" src="https://cdn-images-1.medium.com/max/800/1*-0YpMxxmXWw3eaw4NtuRgA.png"></div><figcaption class="imageCaption">OGP用のいぬ</figcaption></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@terrierscript" class="p-author h-card">terrierscript</a> on <a href="https://medium.com/p/d8ce0264a89e"><time class="dt-published" datetime="2018-09-20T22:01:01.937Z">September 20, 2018</time></a>.</p><p><a href="https://medium.com/@terrierscript/meguro-css-styled-component-css-grid-d8ce0264a89e" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on June 1, 2019.</p></footer></article></body></html>

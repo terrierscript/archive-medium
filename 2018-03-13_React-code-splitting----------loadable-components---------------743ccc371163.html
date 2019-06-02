@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Reactのcode splitting用のライブラリとしてloadable-componentsが良かったので推していきたい</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Reactのcode splitting用のライブラリとしてloadable-componentsが良かったので推していきたい</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+TL;DR
+</section>
+<section data-field="body" class="e-content">
+<section name="8eb9" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="ecad" id="ecad" class="graf graf--h3 graf--leading graf--title">Reactのcode splitting用のライブラリとしてloadable-componentsが良かったので推していきたい</h3><h3 name="9eba" id="9eba" class="graf graf--h3 graf-after--h3">TL;DR</h3><p name="8283" id="8283" class="graf graf--p graf-after--h3"><a href="https://github.com/smooth-code/loadable-components" data-href="https://github.com/smooth-code/loadable-components" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">loadable-components</a> is 良い。</p><h3 name="2d38" id="2d38" class="graf graf--h3 graf-after--p">まえがき</h3><p name="85c5" id="85c5" class="graf graf--p graf-after--h3">dynamic importを使ったcode splitngをする際、Reactだとラッパー的なものを実装しないといけなくて若干面倒がある。</p><p name="1e55" id="1e55" class="graf graf--p graf-after--p">ライブラリも存在しているのだが、<a href="https://reactjs.org/docs/code-splitting.html#libraries" data-href="https://reactjs.org/docs/code-splitting.html#libraries" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">reactの公式</a>で紹介されている<a href="https://github.com/jamiebuilds/react-loadable" data-href="https://github.com/jamiebuilds/react-loadable" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">react-loadable</a>はissueが受け付けられてない状況になっていたりするのであんまり使いたくないなーと感じていた。</p><p name="885d" id="885d" class="graf graf--p graf-after--p"><a href="https://github.com/ctrlplusb/react-async-component" data-href="https://github.com/ctrlplusb/react-async-component" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">react-async-component</a> / <a href="https://github.com/didierfranc/react-code-splitting" data-href="https://github.com/didierfranc/react-code-splitting" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">react-code-splitting</a>もあったが、どちらも導入するほどの気持ちにならなかったので、だいたい自前になっていた。</p><p name="a795" id="a795" class="graf graf--p graf-after--p">「みんなどう思ってるんだろうなー」と何気なくissueをあさっていた所、<a href="https://github.com/smooth-code/loadable-components" data-href="https://github.com/smooth-code/loadable-components" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">loadable-components</a>を見つけた。smooth-codeという会社が作っているらしい。</p><p name="8f67" id="8f67" class="graf graf--p graf-after--p"><a href="https://github.com/reactjs/reactjs.org/pull/573" data-href="https://github.com/reactjs/reactjs.org/pull/573" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">https://github.com/reactjs/reactjs.org/pull/573</a><br><a href="https://github.com/smooth-code/loadable-components" data-href="https://github.com/smooth-code/loadable-components" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">https://github.com/smooth-code/loadable-components</a></p><p name="9685" id="9685" class="graf graf--p graf-after--p">これいいじゃん！って思ったので好きになった所を列挙していく</p><h3 name="2a42" id="2a42" class="graf graf--h3 graf-after--p">loadable-componentsの好きな所：コンセプトが良い</h3><p name="2313" id="2313" class="graf graf--p graf-after--h3"><a href="https://github.com/smooth-code/loadable-components#motivation" data-href="https://github.com/smooth-code/loadable-components#motivation" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">Motivation</a>によると、メインのゴールとして</p><p name="be2a" id="be2a" class="graf graf--p graf-after--p">「なるべくAPIを減らして、開発者が簡単に扱えるようにすること」（意訳）</p><p name="3c48" id="3c48" class="graf graf--p graf-after--p">とある。<br>各ライブラリのREADMEの最初のコードとか比べてみると、「確かにシンプルだ」というのが見て取れた。</p><figure name="44c9" id="44c9" class="graf graf--figure graf-after--p"><div class="aspectRatioPlaceholder is-locked" style="max-width: 700px; max-height: 369px;"><div class="aspectRatioPlaceholder-fill" style="padding-bottom: 52.800000000000004%;"></div><img class="graf-image" data-image-id="1*0voxKnF0o02f95lQqZcIWQ.png" data-width="955" data-height="504" src="https://cdn-images-1.medium.com/max/800/1*0voxKnF0o02f95lQqZcIWQ.png"></div><figcaption class="imageCaption">loadable-componentsのREADME</figcaption></figure><h3 name="e43c" id="e43c" class="graf graf--h3 graf-after--figure">loadable-componentsの好きな所：READMEの丁寧さ</h3><p name="403f" id="403f" class="graf graf--p graf-after--h3">loadable-componentsのREADMEは、「やりたいことが網羅的に書いてて良い」と感じた。これは結構ポイント高い。<br>その上それぞれのコードがシンプルなのがまた素敵。</p><p name="5124" id="5124" class="graf graf--p graf-after--p">地味に一番「おお！これいい！」ってなったのは<a href="https://github.com/smooth-code/loadable-components#prefetch-on-hover" data-href="https://github.com/smooth-code/loadable-components#prefetch-on-hover" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">Prefetch on Hover</a>。Hoverしたときにpreloadする機能 。 <br><code class="markup--code markup--p-code">&lt;Link onMouseOver={MyAsyncComponent.load} /&gt;</code> みたいな簡単な実装でprefetch出来るの滅茶苦茶良い</p><p name="fd12" id="fd12" class="graf graf--p graf-after--p">この機能は<a href="https://github.com/jamiebuilds/react-loadable#preloading" data-href="https://github.com/jamiebuilds/react-loadable#preloading" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">react-loadable</a>にも存在しているので独自というわけではない（が、この記事書くまで気づかなかった）</p><p name="9e97" id="9e97" class="graf graf--p graf-after--p">react-async-componentsには見つからなかった。こっちには無いのかも。</p><h3 name="6172" id="6172" class="graf graf--h3 graf-after--p">loadable-componentsの好きな所：コードが簡素できれい</h3><p name="3228" id="3228" class="graf graf--p graf-after--h3">結構機能充実してるんだろうし、コードやばいのでは？と思って覗いたらめっちゃ普通にキレイでビビった。多分何かしらでハマっても問題解決出来る気がする。<br>テストもばっちり。</p><h3 name="4838" id="4838" class="graf graf--h3 graf-after--p">loadable-componentsの好きな所：issueがある</h3><p name="75d2" id="75d2" class="graf graf--p graf-after--h3">OSS疲れみたいなのもあるので、issueを受け付ける受け付けないは作者の自由だけど、罠にハマった時にissueで解決出来る事も少なくないので、やっぱりissueはオープンな方がありがたい。</p><h3 name="992a" id="992a" class="graf graf--h3 graf-after--p">まとめ</h3><p name="f83e" id="f83e" class="graf graf--p graf-after--h3">ぶっちゃけcomponentのloadingなんてどれを選んでもそれほど変わるものではない。<br>が、その中でもシンプルな事はシンプルにできるし、複雑な事が必要なら複雑なことも十分出来るというところで良さを感じた。</p><p name="c06d" id="c06d" class="graf graf--p graf-after--p graf--trailing">しばらくはloadable-components推していきたいと思っている。</p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@terrierscript" class="p-author h-card">terrierscript</a> on <a href="https://medium.com/p/743ccc371163"><time class="dt-published" datetime="2018-03-13T12:52:35.972Z">March 13, 2018</time></a>.</p><p><a href="https://medium.com/@terrierscript/react%E3%81%AEcode-spliting%E7%94%A8%E3%81%AE%E3%83%A9%E3%82%A4%E3%83%96%E3%83%A9%E3%83%AA%E3%81%A8%E3%81%97%E3%81%A6loadable-components%E3%81%8C%E8%89%AF%E3%81%8B%E3%81%A3%E3%81%9F%E3%81%AE%E3%81%A7%E6%8E%A8%E3%81%97%E3%81%A6%E3%81%84%E3%81%8D%E3%81%9F%E3%81%84-743ccc371163" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on June 1, 2019.</p></footer></article></body></html>

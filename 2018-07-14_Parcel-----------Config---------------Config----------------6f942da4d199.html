@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Parcelを使ったらその魅力は「Configを書かなくても良い」ではなく「Configを書かせない」なのだと気づいた</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Parcelを使ったらその魅力は「Configを書かなくても良い」ではなく「Configを書かせない」なのだと気づいた</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Webpackの対抗馬的に出てきたparcel。特に必要もなかったのでしばらくスルーしてたが、ちょっと触ったら思った以上に面白かったので気づきをまとめておきたい
+</section>
+<section data-field="body" class="e-content">
+<section name="a604" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="12dc" id="12dc" class="graf graf--h3 graf--leading graf--title">Parcelを使ったらその魅力は「Configを書かなくても良い」ではなく「Configを書かせない」なのだと気づいた</h3><p name="bea3" id="bea3" class="graf graf--p graf-after--h3">Webpackの対抗馬的に出てきたparcel。特に必要もなかったのでしばらくスルーしてたが、ちょっと触ったら思った以上に面白かったので気づきをまとめておきたい</p><div name="e25e" id="e25e" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://github.com/parcel-bundler/parcel" data-href="https://github.com/parcel-bundler/parcel" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://github.com/parcel-bundler/parcel"><strong class="markup--strong markup--mixtapeEmbed-strong">parcel-bundler/parcel</strong><br><em class="markup--em markup--mixtapeEmbed-em">parcel - 📦🚀 Blazing fast, zero configuration web application bundler</em>github.com</a><a href="https://github.com/parcel-bundler/parcel" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="502163d4a643b665a4876d6251a58e94" data-thumbnail-img-id="0*TMj0-JZGLsE5oBt2" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*TMj0-JZGLsE5oBt2);"></a></div><h3 name="2ad2" id="2ad2" class="graf graf--h3 graf-after--mixtapeEmbed">なぜParcelが産まれてきたか？</h3><p name="c3b1" id="c3b1" class="graf graf--p graf-after--h3">フロントエンドのビルドツールはGrunt -&gt; gulp -&gt; Webpackと流れて、Webpackはかなりスタンダードになった。<br>この一方で、Webpack疲れとでも呼ぶべき現象が起きてきた。</p><p name="a679" id="a679" class="graf graf--p graf-after--p">一つの大きな理由として膨大になるconfigファイルが挙げられる。<br>Gruntやgulpの頃から、ビルドの設定ファイルが肥大化し、触れる人が少ない、属人化するみたいな現象は良くあった。</p><p name="1903" id="1903" class="graf graf--p graf-after--p">Webpackも例に漏れず、Configは簡素といえないものになることが少なくない。</p><ul class="postList"><li name="1175" id="1175" class="graf graf--li graf-after--p">pluginとloaderという概念を分離している設計</li><li name="7add" id="7add" class="graf graf--li graf-after--li">昨今のフロントの責務の増加</li><li name="a8b4" id="a8b4" class="graf graf--li graf-after--li">フロントエンドに携わる人口の増加</li><li name="506d" id="506d" class="graf graf--li graf-after--li">CSSや画像までカバーしているWebpackの責務範囲</li></ul><p name="71ad" id="71ad" class="graf graf--p graf-after--li">Webpackによる部分もあるものの、時代による部分は大きく、仮に今Gulpやgruntが生きていても、似たような問題は起きてたのではないかと予測している。</p><p name="ea39" id="ea39" class="graf graf--p graf-after--p">そんなこんなで、parcelは「Zero Configuration」というコンセプトを含む形で産まれてきた</p><h3 name="b4c7" id="b4c7" class="graf graf--h3 graf-after--p">本題：Parcelの真髄は「Configを書かなくても良い」ことではなく「Configが書けない」ことではないだろうか</h3><p name="870a" id="870a" class="graf graf--p graf-after--h3">Parcelの登場もあってか、「Zero Configuration」というのはWebpack4も対応してきた。また<a href="https://github.com/fuse-box/fuse-box" data-href="https://github.com/fuse-box/fuse-box" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">fuse-box</a>もZero Configurationについて言及している。</p><p name="0e9b" id="0e9b" class="graf graf--p graf-after--p">これらWebpack4やfuse-boxのZero Configurationは、「設定を書かなくてもすぐ動かせるよ」という意味と言って良い。「書かなくても動かせるし、書くことでカスタマイズも出来る」ということになる。</p><p name="d82e" id="d82e" class="graf graf--p graf-after--p">対してParcelは、Configファイルというのがそもそも無い。必要な設定は <code class="markup--code markup--p-code">babelrc</code> や <code class="markup--code markup--p-code">eslintrc</code> などそれぞれのrcファイルに書かせたり、pluginもpackage.jsonに記述されているものを勝手に読み込むという形になっている。 <code class="markup--code markup--p-code">parcelrc</code> のようなものは少なくとも公式には存在しない（プラグインが勝手に使ってしまってることはある）</p><p name="2ee4" id="2ee4" class="graf graf--p graf-after--p">この「そもそも無い」というのは「無くても動く」とは大きく異なる。触り心地としてはgulpやGruntよりもBrowserifyに近いだろう。<br>Configが無い分をCLIコマンドのオプションとして渡す部分もBrowserifyに近いものを感じる。</p><ul class="postList"><li name="9e98" id="9e98" class="graf graf--li graf-after--p">Configが無いので肥大化しようがない。属人化が薄くなる</li><li name="9191" id="9191" class="graf graf--li graf-after--li">各ツールのrcファイルにお行儀よく記述することになるので、他のツールにも移植するときに使い回せる</li><li name="8cc2" id="8cc2" class="graf graf--li graf-after--li">CLIコマンドなので、サーバーサイドエンジニアに馴染み深い</li></ul><p name="d701" id="d701" class="graf graf--p graf-after--li">あえて制約をかけるというのは、シンプルになるので良いことが多い。<br>片一方、下記のような問題もあるだろう</p><ul class="postList"><li name="d326" id="d326" class="graf graf--li graf-after--p">内部で何をやっているかのブラックボックスが大きくなる</li><li name="1ddd" id="1ddd" class="graf graf--li graf-after--li">出力先、出力方法がある程度固定化される。parcelに縛られる</li><li name="45d6" id="45d6" class="graf graf--li graf-after--li">複雑なことをやろうとしたとき誤ったやり方をすると複雑度が上がる</li></ul><p name="26a1" id="26a1" class="graf graf--p graf-after--li">これが確固たる明確な方針なのかはわからないが、<a href="https://github.com/parcel-bundler/parcel/issues/13" data-href="https://github.com/parcel-bundler/parcel/issues/13" class="markup--anchor markup--p-anchor" rel="nofollow noopener" target="_blank">少なくともどうしても必要になるまでは導入しない</a>という方向性は見て取れる。</p><p name="4063" id="4063" class="graf graf--p graf-after--p">どこかのタイミングで障壁が出来て何らかのconfigが生まれる可能性はあるものの</p><h4 name="a986" id="a986" class="graf graf--h4 graf-after--p">Config一切無しでどこまで出来るのか？</h4><p name="953f" id="953f" class="graf graf--p graf-after--h4">正直に言えば、Configが無くて出来る事なんてどの程度なの？と思ったが、ここまでは検証できた</p><ul class="postList"><li name="8dd6" id="8dd6" class="graf graf--li graf-after--p">index.htmlのビルド（読み込んでるjsファイルのビルド含め）</li><li name="184a" id="184a" class="graf graf--li graf-after--li">出力ディレクトリの変更（ — out-dirオプション）</li><li name="55af" id="55af" class="graf graf--li graf-after--li">複数エントリファイルのビルド（parcel build a.js b.jsみたいな列挙にはなる）</li><li name="f27b" id="f27b" class="graf graf--li graf-after--li">WebWorkerのビルド（特に設定せずnew Workerを分離してくれた）</li><li name="289c" id="289c" class="graf graf--li graf-after--li">dynamic importのファイル分離</li><li name="e2d7" id="e2d7" class="graf graf--li graf-after--li">SCSSのビルド</li><li name="1285" id="1285" class="graf graf--li graf-after--li">SVGを含むReactのビルド</li><li name="2d1c" id="2d1c" class="graf graf--li graf-after--li">サーバーモード・HMR・SourceMap、及びそれぞれのdisable化</li><li name="9b69" id="9b69" class="graf graf--li graf-after--li">manifestファイルの生成（要プラグイン）</li><li name="cd14" id="cd14" class="graf graf--li graf-after--li">typescriptのビルド（要プラグイン）</li></ul><p name="6520" id="6520" class="graf graf--p graf-after--li">思った以上に結構出来てしまった。よほど複雑なビルドケースでなければだいたい対応出来るんじゃないかと思ってしまう</p><h3 name="a8c1" id="a8c1" class="graf graf--h3 graf-after--p">その他のトピック</h3><h4 name="320e" id="320e" class="graf graf--h4 graf-after--h3">コードがきれい</h4><p name="8fb9" id="8fb9" class="graf graf--p graf-after--h4">さすが最近出来ただけあって、class、async、awaitを使ったモダンなコードの作りになっている。</p><p name="c03d" id="c03d" class="graf graf--p graf-after--p">プラグインも作ってみるのにある程度ソースを見る必要があったが、それほどの難解さは無かった。</p><h4 name="d0e7" id="d0e7" class="graf graf--h4 graf-after--p">awesome-parcel</h4><p name="5a33" id="5a33" class="graf graf--p graf-after--h4">公式がプラグイン・ドキュメント集がある。公式がこれを用意しているのはポイント高い</p><div name="d347" id="d347" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://github.com/parcel-bundler/awesome-parcel" data-href="https://github.com/parcel-bundler/awesome-parcel" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://github.com/parcel-bundler/awesome-parcel"><strong class="markup--strong markup--mixtapeEmbed-strong">parcel-bundler/awesome-parcel</strong><br><em class="markup--em markup--mixtapeEmbed-em">awesome-parcel - 🔗 A curated list of awesome Parcel resources, libraries, tools and boilerplates</em>github.com</a><a href="https://github.com/parcel-bundler/awesome-parcel" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="e9943e0e827d8c4b04c653982e8b722e" data-thumbnail-img-id="0*-oS9oQNknJfd6elL" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*-oS9oQNknJfd6elL);"></a></div><h3 name="dbb3" id="dbb3" class="graf graf--h3 graf-after--mixtapeEmbed">結局Parcelは本番環境で使えそうか？</h3><p name="d386" id="d386" class="graf graf--p graf-after--h3">個人的な結論としては、かなり使えると思っている。</p><p name="304f" id="304f" class="graf graf--p graf-after--p">ただWebpackから移植するような場合だと、それまでの制約があったりするので少々フィットしない場合が多いんじゃないかと思える。</p><p name="875d" id="875d" class="graf graf--p graf-after--p">主に使いやすいのは、例えば新規だったり「レガシー環境を徐々にモダンにしていきたい！」という場合だ。<br>こういうときには悪くない選択肢なんじゃないかと思っている。</p><p name="9884" id="9884" class="graf graf--p graf-after--p">また、<a href="https://qiita.com/terrierscript/items/dc0e7eb254ae38406404" data-href="https://qiita.com/terrierscript/items/dc0e7eb254ae38406404" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">create-react-appのejectの代わりに使ってみた</a>りもしたが、こういうフォーマットが一緒の場合もかなり効果高いんじゃないかと思った。</p><p name="9eea" id="9eea" class="graf graf--p graf-after--p graf--trailing">例えばparcelではじめて見て耐えられなくなったらWebpackへ移植していく、みたいな方向もいいんじゃないかと思う。</p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@terrierscript" class="p-author h-card">terrierscript</a> on <a href="https://medium.com/p/6f942da4d199"><time class="dt-published" datetime="2018-07-14T12:50:15.921Z">July 14, 2018</time></a>.</p><p><a href="https://medium.com/@terrierscript/parcel-config-6f942da4d199" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on June 1, 2019.</p></footer></article></body></html>

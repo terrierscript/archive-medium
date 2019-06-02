@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Rx(RxJS)を学ぶのにredux-observableは結構良いんじゃないかという話</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Rx(RxJS)を学ぶのにredux-observableは結構良いんじゃないかという話</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+ここ最近redux-observableを触りまくって、過去何度も挫折してたRxがちょっとわかるようになってきた。
+</section>
+<section data-field="body" class="e-content">
+<section name="dec3" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="9894" id="9894" class="graf graf--h3 graf--leading graf--title">Rx(RxJS)を学ぶのにredux-observableは結構良いんじゃないかという話</h3><p name="9dfa" id="9dfa" class="graf graf--p graf-after--h3">ここ最近redux-observableを触りまくって、過去何度も挫折してたRxがちょっとわかるようになってきた。</p><p name="7a71" id="7a71" class="graf graf--p graf-after--p">そこで「redux-observableって実はRx入門に良いのではないか？」と感じたのでちょっと自分なりの考えをまとめてみる。多分@ngrx/effectsでも同じ事が言えると思う</p><h3 name="319b" id="319b" class="graf graf--h3 graf-after--p">どんな点redux-observableはRx入門に良いと思うのか？</h3><h3 name="b813" id="b813" class="graf graf--h3 graf-after--h3">その1.「Everything is stream」はちょっと難しい。「Actions is stream」で考えると難易度下がる</h3><p name="b121" id="b121" class="graf graf--p graf-after--h3">Rxといえば「Everything is stream」。だが、Rx初学者の自分にとってハードルになっていたのではないかな？と感じた。</p><h4 name="3c15" id="3c15" class="graf graf--h4 graf-after--p">cycle.js、recomposeで挫折していた話</h4><p name="e7cb" id="e7cb" class="graf graf--p graf-after--h4">recomposeではcomponentFromStreamで<code class="markup--code markup--p-code">vdom$</code>とコンポーネントがstreamになっていたり、mapPropsStreamで <code class="markup--code markup--p-code">props$</code>もstreamに出来るようになっている。 だが「viewがstreamである」や「propsがstreamである」というのはRx初学者の自分にとっては流れ想像がしづらく、利点もわからなかった（ぶっちゃけ今でもこのへんはよくわかってない）。</p><p name="ec9b" id="ec9b" class="graf graf--p graf-after--p">cycle.jsなどでは<code class="markup--code markup--p-code">vdom$</code>というviewがstreamとして扱われている。こちらも同様で、やっぱり利点が掴みづらかったり、Observableがstateを作り出すという世界観がどうにも難解に感じてしまった。</p><p name="c1dc" id="c1dc" class="graf graf--p graf-after--p"><a href="http://amagitakayosi.hatenablog.com/entry/2015/10/13/080000" data-href="http://amagitakayosi.hatenablog.com/entry/2015/10/13/080000" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">http://amagitakayosi.hatenablog.com/entry/2015/10/13/080000</a><a href="http://r7kamura.hatenablog.com/entry/2015/10/04/062333" data-href="http://r7kamura.hatenablog.com/entry/2015/10/04/062333" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">http://r7kamura.hatenablog.com/entry/2015/10/04/062333</a></p><h4 name="e2cb" id="e2cb" class="graf graf--h4 graf-after--p"><strong class="markup--strong markup--h4-strong">most, baconなどのReactiveライブラリで挫折していた話</strong></h4><p name="3d29" id="3d29" class="graf graf--p graf-after--h4">most, baconのような別のReactiveライブラリもサンプルがある。 これらはだいたいキーイベントやクリックイベントをStreamとして例示されている。</p><pre name="c4f8" id="c4f8" class="graf graf--pre graf-after--p"><code class="markup--code markup--pre-code">// baconの例</code></pre><pre name="f8d5" id="f8d5" class="graf graf--pre graf-after--pre"><code class="markup--code markup--pre-code">var up   = $(&#39;#up&#39;).asEventStream(&#39;click&#39;);<br>var counter = up.map(1).scan(0, function(x,y) { return x + y });<br>counter.assign($(&#39;#counter&#39;), &#39;text&#39;);</code></pre><p name="35cd" id="35cd" class="graf graf--p graf-after--pre">jQueryとの組み合わせでの使い方はボンヤリわかるものの、「どうすると利点になるのか？」はちょっとわかりづらく、更に不幸にもReactとの組み合わせも全く想像がつかなかった。</p><p name="2623" id="2623" class="graf graf--p graf-after--p">本来ここでRxをマスターしてる人間だったらrecomposeを組み合わせるような話になるんだと思う。</p><h4 name="179c" id="179c" class="graf graf--h4 graf-after--p">redux-observableでは「Actions is Stream」で良かった</h4><p name="26bc" id="26bc" class="graf graf--p graf-after--h4">redux-observableにおいては、「ActionだけがStreamである」と割り切って考えられる。 「Actionがずーっとフローの中を流れ続けている」というのはReduxの概念とぴったり合うし、それを補足して何か行う、という概念が自分の中に割とスッと入ってきた。</p><h3 name="a35b" id="a35b" class="graf graf--h3 graf-after--p">その2. Hot / Coldについてひとまず考えなくていい。</h3><p name="b66a" id="b66a" class="graf graf--p graf-after--h3">よくRxの話で出て来るこのHot / Coldの話。 でもredux-observableの世界において、あまり考える事が無い（自分もまだちゃんとわかってないが、redux-observableにおいてはそんなに困らない）</p><p name="a9e2" id="a9e2" class="graf graf--p graf-after--p">基本的にEpicはActionが来て初めて動くので、Coldの組み合わせだけ意識すれば良い。</p><pre name="147a" id="147a" class="graf graf--pre graf-after--p"><code class="markup--code markup--pre-code">// PINGというaction$<br>const pongEpic = (action$) =&gt; action$<br>  .ofType(&quot;PING&quot;)<br>  .mapTo({<br>    type: &quot;PONG&quot;<br>  })</code></pre><h3 name="77dc" id="77dc" class="graf graf--h3 graf-after--pre">その3. あんまり複雑にしなくても良い。複雑化しそうならActionを発行して分岐させちゃえる</h3><p name="6044" id="6044" class="graf graf--p graf-after--h3">今のところ「Rxが複雑すぎて読めない」みたいなパターンになっていない。<br>ユースケースをまだまだ複雑なことやっていないというのはあるけど、おそらくこの「一つのEpicが複雑になりすぎるなら一回actionを発火させてオペレータを断ち切る」事が出来るからではないかと仮説を立てている。</p><p name="0c4f" id="0c4f" class="graf graf--p graf-after--p">例えば、bookを取得して、同時にそのままauthorを取得するとして</p><pre name="d5a2" id="d5a2" class="graf graf--pre graf-after--p"><code class="markup--code markup--pre-code">const fetchBookAndAuthorEpic = (action$) =&gt; <br>  action$.ofType(&quot;FETCH_BOOK_REQUEST&quot;)<br>    .mergeMap( action =&gt; fetchBook(action.id) )<br>    .map( response =&gt; response.data )<br>    .mergeMap( data =&gt; Observable.merge(<br>      Observable.of({<br>        type: &quot;FULLFILLED_BOOK&quot;,<br>        data<br>      }),<br>      Observable.fromPromise(fetchAuthor(data.author) )<br>        .map( response =&gt; response.data )<br>        .map( data =&gt; ({<br>          type: &quot;FULLFILLED_AUTHOR&quot;,<br>          data<br>        }))<br>    ))</code></pre><p name="e52b" id="e52b" class="graf graf--p graf-after--pre">こんな具合になる。結構きつくなりがち。 redux-observableであれば適宜actionを発火することでepicを分断出来る。あんまりやりすぎると逆に可読性下がったりテストしづらい事があるが、手段として分割出来ると小さくRxを学びやすい</p><pre name="272f" id="272f" class="graf graf--pre graf-after--p"><code class="markup--code markup--pre-code">const fetchBookEpic = (action$) =&gt; <br>  action$.ofType(&quot;FETCH_BOOK_REQUEST&quot;)<br>    .mergeMap( action =&gt; fetchBook(action.id) )<br>    .map( response =&gt; ({<br>      type: &quot;FULLFILLED_BOOK&quot;,<br>      data: response.data<br>    }))</code></pre><pre name="63e6" id="63e6" class="graf graf--pre graf-after--pre"><code class="markup--code markup--pre-code">// bookを習得したらauthorをリクエストする中間epic<br>const requestAuthorEpic = (action$) =&gt; <br>  action$.ofType(&quot;FULLFILLED_BOOK&quot;)<br>    .map(({data}) =&gt; ({<br>      type: &quot;FETCH_AUTHOR_REQUEST&quot;,<br>      author: data.author<br>    }))</code></pre><pre name="d247" id="d247" class="graf graf--pre graf-after--pre"><code class="markup--code markup--pre-code">const fetchAuthorEpic = (action$) =&gt; <br>  action$.ofType(&quot;FETCH_AUTHOR_REQUEST&quot;)<br>    .mergeMap(action =&gt; fetchAuthor(action.author) )<br>    .map( response =&gt; ({<br>      type: &quot;FULLFILLED_AUTHOR&quot;,<br>      data: response.data<br>    }))</code></pre><h3 name="fca3" id="fca3" class="graf graf--h3 graf-after--pre">その4. テストが書きやすい</h3><p name="a1bc" id="a1bc" class="graf graf--p graf-after--h3">UnitTestが書けると、そこを遊び場に出来るので学習速度が上がる<code class="markup--code markup--p-code">Observable.of(元のaction)</code>でmockなAction Streamを作り、それを利用してさくっとテストが書ける</p><pre name="e51a" id="e51a" class="graf graf--pre graf-after--p"><code class="markup--code markup--pre-code">it(&quot;ping epic&quot;, (done) =&gt; {<br>  // inputとなるaction<br>  const mockAction = Observable.of({type: &quot;PING&quot;})<br>  pingEpic(mockAction)<br>    .subscribe( result =&gt; {<br>      // 期待する出力<br>      assert.deepEqual(result, {type: &quot;PONG&quot;}<br>    )<br>    done()<br>    })<br>  })<br>})</code></pre><p name="d19f" id="d19f" class="graf graf--p graf-after--pre">下記にやり方をまとめている。<br><a href="http://qiita.com/inuscript/items/47984cb5fbfb6acf09d5" data-href="http://qiita.com/inuscript/items/47984cb5fbfb6acf09d5" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">http://qiita.com/inuscript/items/47984cb5fbfb6acf09d5</a></p><p name="941a" id="941a" class="graf graf--p graf-after--p">現在これは公式的なやり方ではないが、割と近い手法がPull Reqされている。 <br><a href="https://github.com/redux-observable/redux-observable/issues/204" data-href="https://github.com/redux-observable/redux-observable/issues/204" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">https://github.com/redux-observable/redux-observable/issues/204</a></p><p name="3d8a" id="3d8a" class="graf graf--p graf-after--p">epicをゴニョゴニョいじりながらああでもないこうでもないとoperatorをいじくり回してみると、かなり学習が進む。 自分の肌感でも、ペアプロを通して他者に教えてみてもこのやり方でやるのが学習速度が早く感じている</p><h3 name="9c46" id="9c46" class="graf graf--h3 graf-after--p">逆にredux-observableのどんなところがRx入門に向いてないか</h3><h4 name="f047" id="f047" class="graf graf--h4 graf-after--h3">その1. redux(react)を前提にしている</h4><p name="6153" id="6153" class="graf graf--p graf-after--h4">そりゃそうなんだけど、react / reduxをほぼ前提にしているので、そこに全く興味が無い人には向いてなかろうと思われる<br>（一応、reduxもredux-observableもreact以外で使えると謳い文句にしてるけど、多分やる人いなそう・・・）</p><h4 name="0dd6" id="0dd6" class="graf graf--h4 graf-after--p">その2. ドキュメントとかがRx出来る人前提っぽくなってる</h4><p name="c150" id="c150" class="graf graf--p graf-after--h4">これもある程度しょうがないのだけど、redux-observableは結構「お前、Rx出来るよな？」というところがスタートラインでドキュメントが書かれている感じがあるので、初期のつっかかりが大きい。</p><p name="63fe" id="63fe" class="graf graf--p graf-after--p">自分が躓いた箇所はこのへんでまとめている<a href="http://qiita.com/inuscript/items/dae3f08c1f55065ba413" data-href="http://qiita.com/inuscript/items/dae3f08c1f55065ba413" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">http://qiita.com/inuscript/items/dae3f08c1f55065ba413</a></p><p name="efb4" id="efb4" class="graf graf--p graf-after--p">公式RxJSのドキュメントもわりと慣れるまで辛いのでとにかくRxJSの部分は<a href="https://www.learnrxjs.io/" data-href="https://www.learnrxjs.io/" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">Learn RxJS</a>を読み漁りまくるのがお勧め。</p><h3 name="0d11" id="0d11" class="graf graf--h3 graf-after--p">実際redux-observable使ってみてどうだったか？</h3><p name="15f8" id="15f8" class="graf graf--p graf-after--h3">Rxを学ぶという部分にも最適だったが、実務上でもやっぱり色々利点は感じることが出来た。 以下雑多な感想（利点多め）</p><ul class="postList"><li name="3c8e" id="3c8e" class="graf graf--li graf-after--p">「非同期解決以外使わないだろ」と思ってたObservableの処理が意外と使うポイントあった（キーイベントのthrottle、複数actionを待っての処理など・・・）</li><li name="11ab" id="11ab" class="graf graf--li graf-after--li">色々出来るので無駄にComponentでlocal state持ったりロジック書いたりに済んでいる箇所が結構ある</li><li name="1b04" id="1b04" class="graf graf--li graf-after--li">redux / redux-observableが腐ってもRxの知識が他で使えるのは嬉しい（Rxの学習をコストと捉えるかどうか？という部分。個人的には色々視界が広がった気持ちになっている）</li><li name="8dd2" id="8dd2" class="graf graf--li graf-after--li">学習コストはちょっと高い。しかし無理してRxで書かずにactionやcomponentで解決する逃げ道があるので、段階的に無理なく導入していける。</li></ul><p name="fde7" id="fde7" class="graf graf--p graf-after--li graf--trailing">ということで、Rxを既に習得している人にredux-observableは実用的なものとしてお勧め出来るし、Rxを学びたいという人にも十分おすすめ出来そうだと感じている。</p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@terrierscript" class="p-author h-card">terrierscript</a> on <a href="https://medium.com/p/e9eadc75161d"><time class="dt-published" datetime="2017-05-05T07:05:50.047Z">May 5, 2017</time></a>.</p><p><a href="https://medium.com/@terrierscript/redux-observable%E3%82%92%E9%80%9A%E3%81%98%E3%81%A6rx%E3%82%92%E5%AD%A6%E3%82%93%E3%81%A0%E8%A9%B1-e9eadc75161d" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on June 1, 2019.</p></footer></article></body></html>

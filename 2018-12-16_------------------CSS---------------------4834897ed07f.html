@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>エンジニアがなるほどデザインを読むとCSSに対して意識が変わるかもしれないという話</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">エンジニアがなるほどデザインを読むとCSSに対して意識が変わるかもしれないという話</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+先日なるほどデザインがお買い得になっていたのですかさず買ってしまった。（今更だがテイスト的にKindle版よりも出版物で買ったほうが良かったかもと思いつつある）
+</section>
+<section data-field="body" class="e-content">
+<section name="60a1" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="c91b" id="c91b" class="graf graf--h3 graf--leading graf--title">CSSを書くエンジニアがなるほどデザインを読むとCSSに対して意識が変わるかもしれないという話</h3><p name="35c8" id="35c8" class="graf graf--p graf-after--h3">先日なるほどデザインがお買い得になっていたのですかさず買ってしまった。（今更だがテイスト的にKindle版よりも出版物で買ったほうが良かったかもと思いつつある）</p><div name="9a54" id="9a54" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://amzn.to/2EmfPwJ" data-href="https://amzn.to/2EmfPwJ" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://amzn.to/2EmfPwJ"><strong class="markup--strong markup--mixtapeEmbed-strong">なるほどデザイン</strong><br><em class="markup--em markup--mixtapeEmbed-em">Amazon.co.jp： なるほどデザイン eBook: 筒井 美希: Kindleストア</em>amzn.to</a><a href="https://amzn.to/2EmfPwJ" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="e6c190cd17b6d310f00635bc1ed5c58f" data-thumbnail-img-id="0*s_5-uy6bN1WO3-tq" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*s_5-uy6bN1WO3-tq);"></a></div><p name="a930" id="a930" class="graf graf--p graf-after--mixtapeEmbed">本の趣旨としてはWebよりも出版物のデザインにフォーカスしているといえる。とはいえデザインというものの基礎の話をしている本であり、それはWebについても考える部分は多いと感じた。</p><p name="e6ce" id="e6ce" class="graf graf--p graf-after--p">自分はエンジニアという役職で、デザインに関しては専門ではない、ただフロントエンドという部分においては、デザイナの理想にいかに近似させるかという部分は責務であると思っている。そういう人間にとっては「デザイナはどういう点に気を使っているか」という部分を<a href="https://amzn.to/2Eod8uD" data-href="https://amzn.to/2Eod8uD" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">ノンデザイナーズ・デザインブック</a>よりも専門的な点で知れる本といえるだろう。</p><p name="5aef" id="5aef" class="graf graf--p graf-after--p">Chapter3にあるグラフなどはエンジニアにもよく馴染みのある話だったり、写真の構図や配置による意図などは理解しておくと「ああ、このデザインはこういう意図をしているのか」ということを知れるのはとても有益だと感じる。</p><h4 name="d562" id="d562" class="graf graf--h4 graf-after--p">エンジニアにとっての”共通化”はデザインにとってどうだろうか？</h4><p name="4c7e" id="4c7e" class="graf graf--p graf-after--h4">一番この本でドキッとしてしまったのは「7つ道具 その6 虫めがね」（106p〜123p) だった。<br>この部分を読んで「エンジニアが行っている共通化は果たして良いことなのだろうか？」と思ってしまった。</p><p name="f4b0" id="f4b0" class="graf graf--p graf-after--p">例えばノンデザイナーズ・デザインブックなどを見ると、「反復」というものが出てくる。<br>簡単に言えば「同じ意味を成すものは同じスタイルにする」と訳せるだろう。<br>例えばこれはSASSのmixinや、Atomic designで言えばAtomとして同じコンポーネントを使うという事で共通化し、実現できるものであろうし、した方が良いものだろう。</p><p name="2c68" id="2c68" class="graf graf--p graf-after--p">片一方、例えばカラーコードは下記のようなことをやったりするだろう</p><pre name="32da" id="32da" class="graf graf--pre graf-after--p">$main-color: #356ae8;</pre><pre name="bd02" id="bd02" class="graf graf--pre graf-after--pre">.header {<br>  background: $main-color;<br>  font-color: #000;<br>}</pre><p name="0881" id="0881" class="graf graf--p graf-after--pre">だた、上記のようなカラーコード、font-size、font-face、line-heightなどの細かい値を変数化することについては、エンジニアはもっと慎重になってみても良いのかもしれない。</p><p name="30b5" id="30b5" class="graf graf--p graf-after--p">なるほどデザインに載っている一例を見ると</p><ul class="postList"><li name="7de6" id="7de6" class="graf graf--li graf-after--p">色の面積によって微妙に色を調整する</li><li name="764d" id="764d" class="graf graf--li graf-after--li">文字のコロンやハイフンの位置を微調整する</li><li name="eeb5" id="eeb5" class="graf graf--li graf-after--li">■や●など同じサイズでも図形に併せてサイズを変える</li><li name="2cc9" id="2cc9" class="graf graf--li graf-after--li">「中央」をちょっとだけ上にあげる</li><li name="c665" id="c665" class="graf graf--li graf-after--li">点線のつなぎ目を調整する</li></ul><p name="54eb" id="54eb" class="graf graf--p graf-after--li">などが上がっている。</p><p name="2809" id="2809" class="graf graf--p graf-after--p">同様のことは下記のスライドなどでも紹介されている。</p><p name="847d" id="847d" class="graf graf--p graf-after--p"><a href="https://speakerdeck.com/ayakasumida/huriransudezainafalse-tukurukoto-hatarakukoto?slide=26" data-href="https://speakerdeck.com/ayakasumida/huriransudezainafalse-tukurukoto-hatarakukoto?slide=26" class="markup--anchor markup--p-anchor" rel="nofollow noopener" target="_blank">https://speakerdeck.com/ayakasumida/huriransudezainafalse-tukurukoto-hatarakukoto?slide=26</a></p><p name="7dd3" id="7dd3" class="graf graf--p graf-after--p">残念ながら現在のCSSでは、点線の位置などは調整するのは難しい部分だ。フォントサイズも日本語という不利な言語を抱えてしまっている以上、なかなか多くのフォントを駆使するというのもパフォーマンス影響を考えると難しい点なども多い。</p><p name="11f9" id="11f9" class="graf graf--p graf-after--p">ただ、カラーコードや図形のサイズ、中央の位置なんかは今からでもエンジニアは気をつけることができるのでは無いか？と思う。メインカラーがカラーコード一色でも、デザイナの解像度では、あるいは人間の視覚にとってそれは複数の色を用意して然るべきだし、微妙に「中央ではない」値があったとしたらそれがデザインにとって解像度の高い中央なのだ。</p><p name="62e6" id="62e6" class="graf graf--p graf-after--p">それらのゆらぎを変数や共通化によって潰してしまうことは、エンジニアのエゴだったのではないだろうか？もっと目を凝らして見るべきなのではないか？と振り返ってしまった。</p><p name="d8c4" id="d8c4" class="graf graf--p graf-after--p">当然、上記に上げたようにパフォーマンス起因や、CSSの限界によって実現できないものも多いが、徐々に無理なくできるものも増えて来ている。例えば、ハイフンやコロンだけを再現するコンポーネントを<code class="markup--code markup--p-code">&lt;div&gt;123&lt;Hyphen/&gt;4567&lt;/div&gt;</code>という形で再現できなくはないだろうし、今後もっと自然にスタイリングができるかもしれない。</p><p name="077f" id="077f" class="graf graf--p graf-after--p graf--trailing">もしかすると未来には、フロントエンドエンジニアにはこの細部を実現する力というものも求められる時代が来るのかもしれない。はたから見れば少し前時代へのより戻しと言われてしまいそうだが、個人的には新しい道具を手に入れた上での<a href="http://snsk.hateblo.jp/entry/2014/04/26/230305" data-href="http://snsk.hateblo.jp/entry/2014/04/26/230305" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">技術の螺旋</a>だと考える方が楽しいなと感じる。</p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@terrierscript" class="p-author h-card">terrierscript</a> on <a href="https://medium.com/p/4834897ed07f"><time class="dt-published" datetime="2018-12-16T02:48:11.729Z">December 16, 2018</time></a>.</p><p><a href="https://medium.com/@terrierscript/%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%81%8C%E3%81%AA%E3%82%8B%E3%81%BB%E3%81%A9%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3%E3%82%92%E8%AA%AD%E3%82%80%E3%81%A8css%E3%81%AB%E5%AF%BE%E3%81%97%E3%81%A6%E6%84%8F%E8%AD%98%E3%81%8C%E5%A4%89%E3%82%8F%E3%82%8B%E3%81%8B%E3%82%82%E3%81%97%E3%82%8C%E3%81%AA%E3%81%84%E3%81%A8%E3%81%84%E3%81%86%E8%A9%B1-4834897ed07f" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on June 1, 2019.</p></footer></article></body></html>

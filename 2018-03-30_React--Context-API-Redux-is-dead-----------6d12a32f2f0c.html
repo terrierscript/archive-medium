@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Reactの新Context APIとRedux is deadはどう関係するのか？</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Reactの新Context APIとRedux is deadはどう関係するのか？</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+先日、reduxのメンテナであるMark EriksonさんがBlogged Answers: Redux — Not Dead Yet! という記事を書いていて「はーなんだろうなー」と流し読みしていた。
+</section>
+<section data-field="body" class="e-content">
+<section name="9ec7" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="e25a" id="e25a" class="graf graf--h3 graf--leading graf--title">Reactの新Context APIとRedux is deadはどう関係するのか？</h3><p name="fb62" id="fb62" class="graf graf--p graf-after--h3">先日、reduxのメンテナであるMark Eriksonさんが<a href="http://blog.isquaredsoftware.com/2018/03/redux-not-dead-yet/" data-href="http://blog.isquaredsoftware.com/2018/03/redux-not-dead-yet/" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">Blogged Answers: Redux — Not Dead Yet!</a> という記事を書いていて「はーなんだろうなー」と流し読みしていた。</p><figure name="b4e2" id="b4e2" class="graf graf--figure graf--iframe graf-after--p"><blockquote class="twitter-tweet"><a href="https://twitter.com/acemarke/status/979353781338034177"></a></blockquote><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></figure><p name="32ec" id="32ec" class="graf graf--p graf-after--figure">そんな折、<a href="https://reactjs.org/blog/2018/03/29/react-v-16-3.html#official-context-api" data-href="https://reactjs.org/blog/2018/03/29/react-v-16-3.html#official-context-api" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">React 16.3 がリリース</a>され、Context APIが刷新されたのを見て、「あ、これは確かに向き合い方ちょっと変わるかも」というのを思ったのでまとめてみる。</p><h3 name="d965" id="d965" class="graf graf--h3 graf-after--p"><a href="http://blog.isquaredsoftware.com/2018/03/redux-not-dead-yet/" data-href="http://blog.isquaredsoftware.com/2018/03/redux-not-dead-yet/" class="markup--anchor markup--h3-anchor" rel="noopener" target="_blank">Redux — Not Dead Yet!</a>を要約する</h3><p name="cc6e" id="cc6e" class="graf graf--p graf-after--h3">元記事をざっくり要約してみるとこんな感じ</p><ul class="postList"><li name="e54e" id="e54e" class="graf graf--li graf-after--p">Reduxはどこにも行かないよ。メンテしていくし、役割もあるよ</li><li name="38f8" id="38f8" class="graf graf--li graf-after--li">Context APIによってReduxを置き換えられるパターンはありえるよ。ただその場合、最初からReduxいらなかった可能性あるよ</li><li name="92b2" id="92b2" class="graf graf--li graf-after--li">GraphQLがReduxを置き換えることはあるかも。でもReduxのほうがハマるパターンもあるよ</li><li name="664d" id="664d" class="graf graf--li graf-after--li">最近<a href="https://reactjs.org/blog/2018/03/01/sneak-peek-beyond-react-16.html" data-href="https://reactjs.org/blog/2018/03/01/sneak-peek-beyond-react-16.html" class="markup--anchor markup--li-anchor" rel="noopener" target="_blank">Dan Abramovさんが非同期レンダリングに関して発表した</a>ところ、ソーシャルメディアから「Reduxを置き換えるライブラリを発表した」みたいな広まりをしたけど、ミスリーディングで完全な間違いだよ</li><li name="62be" id="62be" class="graf graf--li graf-after--li">React-Reduxは関心どころがあり、<a href="https://github.com/reactjs/react-redux/pull/898" data-href="https://github.com/reactjs/react-redux/pull/898" class="markup--anchor markup--li-anchor" rel="nofollow noopener" target="_blank">新ContextAPIを利用するようなPR</a>を出したり<a href="https://github.com/reactjs/react-redux/issues/890" data-href="https://github.com/reactjs/react-redux/issues/890" class="markup--anchor markup--li-anchor" rel="nofollow noopener" target="_blank">Reactの非同期レンダリングの問題を解決してる</a>ところだよ。</li></ul><p name="6b45" id="6b45" class="graf graf--p graf-after--li">GraphQLとかの話も言及されてるけど、今回はContextに絞って話を進めてみる。</p><h3 name="5491" id="5491" class="graf graf--h3 graf-after--p">Context API</h3><h4 name="b751" id="b751" class="graf graf--h4 graf-after--h3">今までのContext APIはどんなもの？</h4><p name="ee17" id="ee17" class="graf graf--p graf-after--h4">今までReactは親から子への伝播をpropsを介して行い、親-&gt;子-&gt;孫で親の持つ値を孫に渡すには子をバケツリレー的に経由させなければならず煩雑だった。</p><p name="778d" id="778d" class="graf graf--p graf-after--p">これを解決するものとして今までも<a href="https://github.com/reactjs/reactjs.org/blob/11834be55e133583e441e6a9588ab8c4dc4b44a4/content/docs/context.md" data-href="https://github.com/reactjs/reactjs.org/blob/11834be55e133583e441e6a9588ab8c4dc4b44a4/content/docs/context.md" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">Contextという機能はあった</a>。<br>ただこれは実験的なAPIであり、一般的なアプリケーションには必要なく、状態管理のためには使うべきでない（そういう場合はReduxやMobXを使うべき）ということが書いてあった。</p><h4 name="5dc2" id="5dc2" class="graf graf--h4 graf-after--p">対して、新Context APIは？</h4><p name="d5ac" id="d5ac" class="graf graf--p graf-after--h4">今回、新APIは上記の実験的という文脈は取り払われている。</p><div name="3bbe" id="3bbe" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://reactjs.org/docs/context.html" data-href="https://reactjs.org/docs/context.html" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://reactjs.org/docs/context.html"><strong class="markup--strong markup--mixtapeEmbed-strong">Context - React</strong><br><em class="markup--em markup--mixtapeEmbed-em">Context provides a way to pass data through the component tree without having to pass props down manually at every…</em>reactjs.org</a><a href="https://reactjs.org/docs/context.html" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="50b40ea02f1cccb2af7d8a6f4f8864db" data-thumbnail-img-id="0*hVwLP2i9RyHNNc9O." style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*hVwLP2i9RyHNNc9O.);"></a></div><p name="bdbe" id="bdbe" class="graf graf--p graf-after--mixtapeEmbed">サンプルとして、カラースキームのThemeのようなものを題材として上げられている。（書きながら気づいたが、新しいContex APIの話には特にReduxとかMobXとかの文脈も取り払われているようだ。）</p><p name="84a5" id="84a5" class="graf graf--p graf-after--p">サンプルを拝借してみると、確かにこれは簡素になっているなーと感じる。ちょっと読み解いてみるとこんな具合。</p><figure name="c4c5" id="c4c5" class="graf graf--figure graf--iframe graf-after--p"><script src="https://gist.github.com/terrierscript/daff39b0cd75ab5291635ff0cab41eae.js"></script></figure><p name="8d31" id="8d31" class="graf graf--p graf-after--figure">今までであれば <code class="markup--code markup--p-code">&lt;Toolbar theme={theme} user={signedInUser} /&gt;</code> みたいな具合で値を渡したり、Reduxのグローバルな値として持たせなきゃいけなかったのがContextで解決できるようになっているのがわかる。</p><h4 name="d5d3" id="d5d3" class="graf graf--h4 graf-after--p">action的な関数を渡すパターン</h4><p name="4d81" id="4d81" class="graf graf--p graf-after--h4">ちょっとだけここで疑問になったのが、「functionを渡したり出来るの？」というところだったが、これもカウンターのサンプルで試してみたところ問題無かった。</p><figure name="476b" id="476b" class="graf graf--figure graf-after--p"><div class="aspectRatioPlaceholder is-locked" style="max-width: 443px; max-height: 327px;"><div class="aspectRatioPlaceholder-fill" style="padding-bottom: 73.8%;"></div><img class="graf-image" data-image-id="1*Tor7RTeR42EcvJ9k20Dzyw.gif" data-width="443" data-height="327" src="https://cdn-images-1.medium.com/max/800/1*Tor7RTeR42EcvJ9k20Dzyw.gif"></div></figure><p name="6dc3" id="6dc3" class="graf graf--p graf-after--figure"><a href="http://upbeat-babbage-2dbae0.netlify.com/" data-href="http://upbeat-babbage-2dbae0.netlify.com/" class="markup--anchor markup--p-anchor" rel="nofollow noopener" target="_blank">サンプル</a> <a href="https://github.com/inuscript/contex-api-sample/blob/master/src/App.js" data-href="https://github.com/inuscript/contex-api-sample/blob/master/src/App.js" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">ソース</a></p><figure name="3baf" id="3baf" class="graf graf--figure graf--iframe graf-after--p"><script src="https://gist.github.com/terrierscript/e0eee28bb1b8954a299e73e608d01e8d.js"></script></figure><p name="905b" id="905b" class="graf graf--p graf-after--figure">書いてみて思ったが、ContextのConsumer側は同一のコンポーネントである場合とかだと、かなり扱いやすいんじゃないだろうか。<br>モーダル系とかだとかなり活きるところありそう。</p><h3 name="55d6" id="55d6" class="graf graf--h3 graf-after--p">今後Context / Reduxとそれぞれどう向き合っていくか？（主観）</h3><ul class="postList"><li name="946c" id="946c" class="graf graf--li graf-after--h3">Reduxをもう今後使わないか？というと多分普通に使うことはあるだろうと思う</li><li name="2da9" id="2da9" class="graf graf--li graf-after--li">片一方、小規模だけどギリバケツリレーが辛いぐらいな規模のときは、Redux選んでいたのをContextで済ます、みたいなパターンも出てきそう</li><li name="ced0" id="ced0" class="graf graf--li graf-after--li">今までだと、 規模の大きさに準じて、<strong class="markup--strong markup--li-strong">State / Propsのみ</strong> -&gt; <strong class="markup--strong markup--li-strong">オレオレFluxとかちっちゃめのやつ</strong> -&gt; <strong class="markup--strong markup--li-strong">Redux</strong>って順序で選定していたのが、<strong class="markup--strong markup--li-strong">State / Propsのみ</strong> -&gt; <strong class="markup--strong markup--li-strong">Context / State / Props利用</strong> -&gt; <strong class="markup--strong markup--li-strong">Redux</strong> -&gt; <strong class="markup--strong markup--li-strong">Redux / Context併用 </strong>って順序になっていく感じ？</li><li name="21a5" id="21a5" class="graf graf--li graf-after--li">Context APIはネストされたバケツリレーを解決するものの、Stateの分割統治でとかdispatchとかreduxの持っていたバケツリレー以外の機能は、おそらくContextだけだと解決しづらい。</li><li name="7991" id="7991" class="graf graf--li graf-after--li">↑めちゃくちゃデカイstateと大量のmutation関数をContextに押し込めて運用するのとか地獄が見えそう</li><li name="5371" id="5371" class="graf graf--li graf-after--li">ReduxとContextを併用する場合で言うと、「これReduxにいちいち入れるほどじゃないんだけどReduxに入れとかないと色んな所で参照できないから仕方なくReduxにぶっこんどかないといけないんだよなー」みたいなものがContextに切り出せそうな気がする</li><li name="e362" id="e362" class="graf graf--li graf-after--li">↑とはいえ、これはこれでReduxのSingle source of truthから外れるので、注意深く切り出す必要はある。</li><li name="a3fd" id="a3fd" class="graf graf--li graf-after--li graf--trailing">このへんの併用の温度感としては、Redux使ってても全体に伝播させる必要が全くないような値についてComponentのLocal Stateを扱ってたのと同じ感じ。<br><a href="https://redux.js.org/faq/organizing-state#do-i-have-to-put-all-my-state-into-redux-should-i-ever-use-react%27s-setstate%28%29" data-href="https://redux.js.org/faq/organizing-state#do-i-have-to-put-all-my-state-into-redux-should-i-ever-use-react&#39;s-setstate()" class="markup--anchor markup--li-anchor" rel="nofollow noopener" target="_blank">Local StateについてはReduxのFAQでも言及されてる</a>。<a href="https://qiita.com/terrierscript/items/26bc85626bcdc4963331#organizing-state" data-href="https://qiita.com/terrierscript/items/26bc85626bcdc4963331#organizing-state" class="markup--anchor markup--li-anchor" rel="noopener" target="_blank">僕がざっくり翻訳したやつもリンク</a>しておく</li></ul></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@terrierscript" class="p-author h-card">terrierscript</a> on <a href="https://medium.com/p/6d12a32f2f0c"><time class="dt-published" datetime="2018-03-30T04:12:32.679Z">March 30, 2018</time></a>.</p><p><a href="https://medium.com/@terrierscript/react%E3%81%AE%E6%96%B0context-api%E3%81%A8redux-is-dead%E3%81%AF%E3%81%A9%E3%81%86%E9%96%A2%E4%BF%82%E3%81%99%E3%82%8B%E3%81%AE%E3%81%8B-6d12a32f2f0c" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on June 1, 2019.</p></footer></article></body></html>
